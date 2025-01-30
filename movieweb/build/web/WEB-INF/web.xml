@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <servlet>
+        <servlet-name>user</servlet-name>
+        <servlet-class>models.user</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>adminlogin</servlet-name>
+        <servlet-class>controller.adminlogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>accountdao</servlet-name>
+        <servlet-class>DAO.accountdao</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addmovieservlet</servlet-name>
+        <servlet-class>controller.addmovieservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deletemovieservlet</servlet-name>
+        <servlet-class>controller.deletemovieservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updatemovieservlet</servlet-name>
+        <servlet-class>controller.updatemovieservlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminlogin</servlet-name>
+        <url-pattern>/adminlogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>accountdao</servlet-name>
+        <url-pattern>/accountdao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addmovieservlet</servlet-name>
+        <url-pattern>/addmovieservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deletemovieservlet</servlet-name>
+        <url-pattern>/deletemovieservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updatemovieservlet</servlet-name>
+        <url-pattern>/updatemovieservlet</url-pattern>
+    </servlet-mapping>
+</web-app>
