@@ -19,9 +19,14 @@
         <span>or use your email password</span>
         <input type="text" name="Username" placeholder="Username" required />
         <input type="text" name="Password" placeholder="Password" required />
+        <select name="role">
+            <<option value="admin">admin</option>
+            <<option value="user">user</option>
+        </select>
         <a href="#">Forgot Your Password?</a>
         <button type="submit">Sign In</button>
       </form>
+           ${msg0}
     </div>
     </body>
 </html>

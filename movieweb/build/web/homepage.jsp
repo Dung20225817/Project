@@ -23,5 +23,11 @@
         <form action="updatemovieservlet" method="get">
             <button type="submit">Update movie</button>
         </form>
+        <form action="addorderservlet" method="get">
+            <button type="submit">Add Order</button>
+        </form>
+        <form action="deleteorderservlet" method="get">
+            <button type="submit">Delete Order</button>
+        </form>
     </body>
 </html>

@@ -65,7 +65,7 @@ public class accountdao {
 		PreparedStatement psm = null;
 		try {
 			ArrayList<Account> accList = new ArrayList<>();
-			String sql = "SELECT aid, name, pass\r\n"
+			String sql = "SELECT aid, name, pass, role\r\n"
 					+ "FROM account\r\n";
 			psm = connection.prepareStatement(sql);
 			ResultSet rs = psm.executeQuery();
@@ -75,6 +75,7 @@ public class accountdao {
 				acc.setAid(rs.getInt("aid"));
                                 acc.setName(rs.getString("name"));
                                 acc.setPass(rs.getString("pass"));
+                                acc.setRole(rs.getString("role"));
 
 				accList.add(acc);				
 			}

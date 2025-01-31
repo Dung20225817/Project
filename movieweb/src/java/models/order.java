@@ -4,6 +4,8 @@
  */
 package models;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author User
@@ -12,8 +14,7 @@ public class order {
     private int oid;
     private static int count =0;
     private String oname;
-    private  String mvname;
-    private String mvtime;
+    private Timestamp otime;
     private boolean status;
     private String phone; 
    
@@ -24,11 +25,10 @@ public class order {
     public order() {
     }
 
-    public order( String oname, String mvname, String mvtime, boolean status,String phone, Movie movie) {
+    public order( String oname, Timestamp otime, boolean status,String phone, Movie movie) {
         oid++;
         this.oname = oname;
-        this.mvname = mvname;
-        this.mvtime = mvtime;
+        this.otime = otime;
         this.status = status;
         this.movie = movie;
         this.phone = phone;
@@ -40,17 +40,17 @@ public class order {
         return oid;
     }
 
-    public String getName() {
+    public String getOname() {
         return oname;
     }
 
-    public String getMvname() {
-        return mvname;
+
+
+    public Timestamp getOtime() {
+        return otime;
     }
 
-    public String getMvtime() {
-        return mvtime;
-    }
+
 
     public boolean isStatus() {
         return status;
@@ -70,17 +70,20 @@ public class order {
 
 
 
-    public void setName(String oname) {
+    public void setOname(String oname) {
         this.oname = oname;
     }
 
-    public void setMvname(String mvname) {
-        this.mvname = mvname;
+
+    public void setOid(int oid) {
+        this.oid = oid;
     }
 
-    public void setMvtime(String mvtime) {
-        this.mvtime = mvtime;
+    public void setOtime(Timestamp otime) {
+        this.otime = otime;
     }
+
+
 
     public void setStatus(boolean status) {
         this.status = status;
@@ -88,6 +91,10 @@ public class order {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 
 

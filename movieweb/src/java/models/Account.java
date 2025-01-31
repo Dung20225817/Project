@@ -11,6 +11,7 @@ package models;
 public class Account {
     private String name;
     private String pass;
+    private String role;
     private int aid;
     private static int count=0;
    
@@ -18,10 +19,11 @@ public class Account {
     public Account() {
     }
 
-    public Account(String name, String pass) {
+    public Account(String name, String pass, String role) {
         aid=count++;
         this.name = name;
         this.pass = pass;
+        this.role = role;
         
     }
 
@@ -33,6 +35,11 @@ public class Account {
         this.pass = pass;
     }
 
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    
     public String getName() {
         return name;
     }
@@ -44,6 +51,11 @@ public class Account {
     public int getAid() {
         return aid;
     }
+
+    public String getRole() {
+        return role;
+    }
+    
 
    
     public void setAid(int aid) {

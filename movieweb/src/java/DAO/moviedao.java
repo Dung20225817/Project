@@ -76,7 +76,7 @@ public class moviedao {
             System.out.println(e.toString());
         }
     }
-    public ArrayList<Movie> GetMovie(HttpServletRequest request, Connection connection) throws SQLException{
+    public ArrayList<Movie> GetListMovie(HttpServletRequest request, Connection connection) throws SQLException{
         PreparedStatement psm = null;
        try { String sql =" SELECT mvname, mvprice, mvstatus, mvtime, mvscript, mvid "+" FROM movie;";
         psm = connection.prepareStatement(sql);
@@ -100,5 +100,31 @@ public class moviedao {
 			e.printStackTrace();
 		}
 		return null;
+    }
+    
+    public Movie GetMovie(HttpServletRequest request, Connection connection, int mvid) throws SQLException
+    {
+        PreparedStatement psm =null;
+         try {
+        String sql="SELECT mvname , mvprice, mvstatus, mvtime, mvscript, mvid "+" FROM movie"+" WHERE mvid = ?";
+        psm = connection.prepareStatement(sql);
+        psm.setInt(1, mvid);
+        ResultSet rs=psm.executeQuery();
+         if (rs.next()) { // Kiểm tra nếu có dữ liệu
+        Movie curmovie =new Movie();
+        curmovie.setMvid(rs.getInt("mvid"));
+        curmovie.setMvname(rs.getString("mvname"));
+        curmovie.setMvscript(rs.getString("mvscript"));
+        curmovie.setMvstatus(rs.getBoolean("mvstatus"));
+        curmovie.setMvtime(rs.getTimestamp("mvtime"));
+        curmovie.setMvprice(rs.getDouble("mvprice"));
+        return curmovie;
+         }
+        } catch (SQLException e) {
+        e.printStackTrace(); // In lỗi nếu có
+        }
+        psm.close();
+        
+        return null;
     }
 }

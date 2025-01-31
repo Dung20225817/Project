@@ -52,21 +52,26 @@ public class adminlogin extends HttpServlet {
             throws ServletException, IOException {
         Connection conn = DBConnect.getJDBCConnection();
         accountdao accdao = new accountdao();
-        ArrayList<Account> accList = accdao.getAccount(request, (java.sql.Connection) conn);
+        ArrayList<Account> accList = accdao.getAccount(request, conn);
+        HttpSession ss = request.getSession();
+        
         String full_name = request.getParameter("Username");
         String password = request.getParameter("Password");
-        boolean isMatched = false; // Biến cờ kiểm tra tài khoản khớp
-
+        String role = request.getParameter("role");
+        
+   
         for (Account acc : accList) {
-            if (acc.getName().equals(full_name) && acc.getPass().equals(password)) {
-                isMatched = true; // Đánh dấu tài khoản khớp
-                HttpSession ss = request.getSession();
+            if (acc.getName().equals(full_name) && acc.getPass().equals(password) && acc.getRole().equals(role)) {
+               if(role.equals("admin")){
                 ss.setAttribute("account", acc);
                 request.getRequestDispatcher("/homepage.jsp").forward(request, response);
+                } 
             } else {
+                String msg = "Wrong password or user name ";
+                ss.setAttribute("msg0", msg);
                 request.getRequestDispatcher("/login.jsp").forward(request, response);
             }
-            // Thoát khỏi phương thức sau khi xử lý
+            
         }
         return;
 

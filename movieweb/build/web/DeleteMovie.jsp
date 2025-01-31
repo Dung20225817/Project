@@ -24,6 +24,6 @@
           </select>
           <input type="submit" name="Delete">
         </form>
-       ${msg0}
+       ${msg1}
     </body>
 </html>

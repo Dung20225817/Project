@@ -60,7 +60,7 @@ public class deletemovieservlet extends HttpServlet {
         moviedao mvdao =new moviedao();
         ArrayList<Movie> ListMovie;
         try {
-            ListMovie = mvdao.GetMovie(request, conn);
+            ListMovie = mvdao.GetListMovie(request, conn);
              ss.setAttribute("ListMovie", ListMovie);
              
         } catch (SQLException ex) {
@@ -77,12 +77,12 @@ public class deletemovieservlet extends HttpServlet {
         moviedao mvdao =new moviedao();
         
         try {
-            ArrayList<Movie> ListMovie = mvdao.GetMovie(request, conn);
+            ArrayList<Movie> ListMovie = mvdao.GetListMovie(request, conn);
             String curname = request.getParameter("curmvname");
             if( curname==null)
             {
-                  String msg0="Loi không có dữ liệu";
-                  ss.setAttribute("msg0", msg0);
+                  String msg="Loi không có dữ liệu";
+                  ss.setAttribute("msg1", msg);
                   request.getRequestDispatcher("/DeleteMovie.jsp").forward(request, response);
               }
             else{

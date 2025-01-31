@@ -5,8 +5,9 @@
 
 package controller;
 
-import DAO.moviedao;
+import DAO.orderdao;
 import dbconnect.DBConnect;
+import java.sql.Connection;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,20 +15,15 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import models.Movie;
+
 /**
  *
  * @author User
  */
-public class updatemovieservlet extends HttpServlet {
+public class deleteorderservlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -44,10 +40,10 @@ public class updatemovieservlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet updatemovieservlet</title>");
+            out.println("<title>Servlet deleteorderservlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet updatemovieservlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet deleteorderservlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -65,39 +61,40 @@ public class updatemovieservlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         Connection conn = DBConnect.getJDBCConnection();
-        moviedao mvdao = new moviedao();
-        HttpSession ss=request.getSession();
-        
-        ArrayList<Movie> MovieList = new ArrayList<>();
+        orderdao odao= new orderdao();
+        HttpSession ss= request.getSession();
         try {
-            MovieList= mvdao.GetListMovie(request, conn);
-            ss.setAttribute("MovieList", MovieList);
-            request.getRequestDispatcher("UpdateMovie.jsp").forward(request, response);
+            ss.setAttribute("ListOrder", odao.GetOrder(request, conn));
+            request.getRequestDispatcher("deleteorder.jsp").forward(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(updatemovieservlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(deleteorderservlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
-   
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        Connection conn =DBConnect.getJDBCConnection();
-        moviedao mvdao = new moviedao();
-        Movie curmovie =new Movie();
-        
-        curmovie.setMvid(Integer.parseInt(request.getParameter("id")));
-        curmovie.setMvprice(Double.parseDouble(request.getParameter("price")));
-        curmovie.setMvscript(request.getParameter("script"));
-         String mvtimeStr = request.getParameter("time");  // "2025-01-29T14:30"
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-        LocalDateTime localDateTime = LocalDateTime.parse(mvtimeStr, formatter); // 2. Chuyển từ String -> LocalDateTime -> Timestamp (để lưu vào MySQL)
-        curmovie.setMvtime(Timestamp.valueOf(localDateTime));
-        
-        mvdao.UpdateMovie(request, conn, curmovie);
-        request.getRequestDispatcher("/homepage.jsp").forward(request, response);
-        
-        
+        Connection conn = DBConnect.getJDBCConnection();
+        orderdao odao = new orderdao();
+        String oidStr = request.getParameter("curorder");
+        int oid = Integer.parseInt(oidStr);
+        try {
+            odao.DeleteOrder(request, conn,oid );
+            request.getRequestDispatcher("homepage.jsp").forward(request, response);
+        } catch (SQLException ex) {
+            String msg="Loi xoa du lieu";
+            HttpSession ss= request.getSession();
+            ss.setAttribute("msg", msg);
+            request.getRequestDispatcher("deleteorder.jsp").forward(request, response);
+        }
     }
 
     /**

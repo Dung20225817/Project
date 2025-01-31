@@ -5,10 +5,13 @@
         <group>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/movieweb/src/java/controller/adminlogin.java</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/movieweb/web/homepage.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/movieweb/src/java/controller/deletemovieservlet.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/movieweb/src/java/controller/deleteorderservlet.java</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/movieweb/src/java/controller/addmovieservlet.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/movieweb/src/java/DAO/moviedao.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/movieweb/src/java/models/Movie.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/movieweb/web/addmovie.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/movieweb/web/DeleteMovie.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/movieweb/src/java/DAO/orderdao.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/movieweb/web/login.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/movieweb/src/java/controller/addorderservlet.java</file>
         </group>
     </open-files>
 </project-private>

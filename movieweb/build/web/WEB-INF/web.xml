@@ -24,6 +24,14 @@
         <servlet-name>updatemovieservlet</servlet-name>
         <servlet-class>controller.updatemovieservlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addorderservlet</servlet-name>
+        <servlet-class>controller.addorderservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteorderservlet</servlet-name>
+        <servlet-class>controller.deleteorderservlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminlogin</servlet-name>
         <url-pattern>/adminlogin</url-pattern>
@@ -43,5 +51,13 @@
     <servlet-mapping>
         <servlet-name>updatemovieservlet</servlet-name>
         <url-pattern>/updatemovieservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addorderservlet</servlet-name>
+        <url-pattern>/addorderservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteorderservlet</servlet-name>
+        <url-pattern>/deleteorderservlet</url-pattern>
     </servlet-mapping>
 </web-app>
