@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+
+}
+
+h1{
+    font-size: 30px;
+    line-height: 64px;
+    color:#222;
+
+}
+
+h4{
+    font-size: 30px;
+    color: #222;
+
+}
+
+h6{
+    font-weight: 700px;
+    font-size: 12px;
+}
+
+p{
+    font-size: 12px;
+    color: #000;
+}
+
+.section-p1 {
+    padding: 40px 80px;
+}
+
+.section-m1{
+    margin: 40px 0;
+}
+
+button.normal{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color:#000;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s;
+}
+
+body{
+    width: 100%;
+}
+
+/* header */
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: #e3e6f2;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#navbar{
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a:hover  /*Chọn tất cả các thẻ <a> bên trong các thẻ <li> thuộc phần tử có ID là navbar. :hover: Khi người dùng di chuột vào (hover) liên kết, nó sẽ đổi màu thành cadetblue */
+#navbar li a.active{
+    color:cadetblue;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after{
+   content: "";
+   width: 30%;
+   background: #088178;
+   height: 2px;
+   position: absolute;
+   bottom: -4px;
+   left: 20px;
+}
+
+/* Định dạng container chính */
+.account-container {
+    display: flex;  /* Sử dụng Flexbox */
+    align-items: center;  /* Căn giữa theo chiều dọc */
+    gap: 20px;  /* Khoảng cách giữa ảnh và thông tin */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+}
+
+/* Định dạng ảnh avatar */
+.account-avatar img {
+    width: 150px;  /* Đặt chiều rộng cố định */
+    height: 150px;
+    object-fit: cover;  /* Đảm bảo ảnh vừa với khung */
+    border-radius: 50%;  /* Làm tròn ảnh */
+    border: 2px solid #088178;
+}
+
+/* Định dạng phần thông tin người dùng */
+.account-info {
+    flex: 1;  /* Chiếm toàn bộ phần còn lại của container */
+}
+ /*định dang form gửi*/
+.form-container {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 70%;
+    left: 50%;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Giới hạn form để đẹp hơn trên màn hình rộng */
+    
+    }
+    label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    }
+
+   

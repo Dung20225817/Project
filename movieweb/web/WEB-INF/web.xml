@@ -32,6 +32,66 @@
         <servlet-name>deleteorderservlet</servlet-name>
         <servlet-class>controller.deleteorderservlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>updateorderservlet</servlet-name>
+        <servlet-class>controller.updateorderservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addaccountservlet</servlet-name>
+        <servlet-class>controller.addaccountservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteaccountservlet</servlet-name>
+        <servlet-class>controller.deleteaccountservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>resetpasswordservlet</servlet-name>
+        <servlet-class>controller.resetpasswordservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>showmoviepageservlet</servlet-name>
+        <servlet-class>controller.showmoviepageservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>searchmovieservlet</servlet-name>
+        <servlet-class>controller.searchmovieservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>showorderpageservlet</servlet-name>
+        <servlet-class>controller.showorderpageservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>showaccountpageservlet</servlet-name>
+        <servlet-class>controller.showaccountpageservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateaccountservlet</servlet-name>
+        <servlet-class>controller.updateaccountservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>showtimeservlet</servlet-name>
+        <servlet-class>controller.feature.showtimeservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>incomeservlet</servlet-name>
+        <servlet-class>controller.feature.incomeservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>showemployeeinformationservlet</servlet-name>
+        <servlet-class>controller.feature.showemployeeinformationservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>showcustomerinformationservlet</servlet-name>
+        <servlet-class>controller.feature.showcustomerinformationservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>showhomepageservlet</servlet-name>
+        <servlet-class>controller.showhomepageservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>showcinemainformationservlet</servlet-name>
+        <servlet-class>controller.feature.showcinemainformationservlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminlogin</servlet-name>
         <url-pattern>/adminlogin</url-pattern>
@@ -59,5 +119,65 @@
     <servlet-mapping>
         <servlet-name>deleteorderservlet</servlet-name>
         <url-pattern>/deleteorderservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateorderservlet</servlet-name>
+        <url-pattern>/updateorderservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addaccountservlet</servlet-name>
+        <url-pattern>/addaccountservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteaccountservlet</servlet-name>
+        <url-pattern>/deleteaccountservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>resetpasswordservlet</servlet-name>
+        <url-pattern>/resetpasswordservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>showmoviepageservlet</servlet-name>
+        <url-pattern>/showmoviepageservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>searchmovieservlet</servlet-name>
+        <url-pattern>/searchmovieservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>showorderpageservlet</servlet-name>
+        <url-pattern>/showorderpageservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>showaccountpageservlet</servlet-name>
+        <url-pattern>/showaccountpageservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateaccountservlet</servlet-name>
+        <url-pattern>/updateaccountservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>showtimeservlet</servlet-name>
+        <url-pattern>/showtimeservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>incomeservlet</servlet-name>
+        <url-pattern>/incomeservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>showemployeeinformationservlet</servlet-name>
+        <url-pattern>/showemployeeinformationservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>showcustomerinformationservlet</servlet-name>
+        <url-pattern>/showcustomerinformationservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>showhomepageservlet</servlet-name>
+        <url-pattern>/showhomepageservlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>showcinemainformationservlet</servlet-name>
+        <url-pattern>/showcinemainformationservlet</url-pattern>
     </servlet-mapping>
 </web-app>
