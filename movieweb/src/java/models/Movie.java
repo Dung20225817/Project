@@ -18,19 +18,20 @@ public class Movie {
     private static int count=0;
     private double mvprice;
     private boolean mvstatus=true;
+    private String mvposter;
     public Movie() {
     }
 
    
 
-    public Movie(String name, Timestamp time, String script, double price)//dành cho bên quản lí
+    public Movie(String name, Timestamp time, String script, double price, String poster)//dành cho bên quản lí
     {
         mvid=count++;
         this.mvname = name;
         this.mvtime = time;
         this.mvscript = script;
         this.mvprice = price;
-        
+        this.mvposter=poster;
        
     }
 
@@ -58,6 +59,10 @@ public class Movie {
 
     public boolean isMvstatus() {
         return mvstatus;
+    }
+
+    public String getMvposter() {
+        return mvposter;
     }
     
     
@@ -87,6 +92,10 @@ public class Movie {
 
     public void setMvid(int mvid) {
         this.mvid = mvid;
+    }
+
+    public void setMvposter(String mvposter) {
+        this.mvposter = mvposter;
     }
 
     

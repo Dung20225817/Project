@@ -5,7 +5,8 @@
 
 package controller;
 
-import DAO.moviedao;
+import DAO.accountdao;
+import java.sql.Connection;
 import dbconnect.DBConnect;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,21 +14,15 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import models.Movie;
+
 /**
  *
  * @author User
  */
-public class updatemovieservlet extends HttpServlet {
+public class addaccountservlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -44,10 +39,10 @@ public class updatemovieservlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet updatemovieservlet</title>");
+            out.println("<title>Servlet addaccountservlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet updatemovieservlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet addaccountservlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -64,34 +59,33 @@ public class updatemovieservlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        Connection conn = DBConnect.getJDBCConnection();
-        moviedao mvdao = new moviedao();
-        HttpSession ss=request.getSession();
-        
-        ArrayList<Movie> MovieList = new ArrayList<>();
-        MovieList= mvdao.GetListMovie(request, conn);
-        ss.setAttribute("MovieList", MovieList);
-        request.getRequestDispatcher("UpdateMovie.jsp").forward(request, response);
+        request.getRequestDispatcher("addaccount.jsp").forward(request, response);
     }
 
-   
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        Connection conn =DBConnect.getJDBCConnection();
-        moviedao mvdao = new moviedao();
-        Movie curmovie = null;
-        curmovie = mvdao.GetMovie(request, conn,Integer.parseInt(request.getParameter("id")));
-        curmovie.setMvname(request.getParameter("mvname"));
-        curmovie.setMvprice(Double.parseDouble(request.getParameter("price")));
-        curmovie.setMvscript(request.getParameter("script"));
-         String mvtimeStr = request.getParameter("time");  // "2025-01-29T14:30"
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-        LocalDateTime localDateTime = LocalDateTime.parse(mvtimeStr, formatter); // 2. Chuyển từ String -> LocalDateTime -> Timestamp (để lưu vào MySQL)
-        curmovie.setMvtime(Timestamp.valueOf(localDateTime));
+        Connection conn = DBConnect.getJDBCConnection();
+        String username = request.getParameter("username");
+        String pass = request.getParameter("pass");
+        String name = request.getParameter("fullname");
+        int age = Integer.parseInt(request.getParameter("age"));
+        String mail = request.getParameter("mail");
+        String address = request.getParameter("address");
+        String role = request.getParameter("role");
+        String phone = request.getParameter("phone");
+        String image = request.getParameter("image");
         
-        mvdao.UpdateMovie(request, conn, curmovie);
-        request.getRequestDispatcher("/homepage.jsp").forward(request, response);
+        accountdao accdao = new accountdao();
+        accdao.AddAccount(request, conn, username, pass, role, name, age, mail, address, phone, image);
+        request.getRequestDispatcher("homepage.jsp").forward(request, response);
         
         
     }

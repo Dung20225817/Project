@@ -60,14 +60,11 @@ public class addmovieservlet extends HttpServlet {
         LocalDateTime localDateTime = LocalDateTime.parse(mvtimeStr, formatter); // 2. Chuyển từ String -> LocalDateTime -> Timestamp (để lưu vào MySQL)
         Timestamp mvtime = Timestamp.valueOf(localDateTime);
         String mvscript = request.getParameter("script");
+        String mvposter =request.getParameter("mvposter");
         try{
         String priceParam = request.getParameter("price");
         Double mvprice = Double.parseDouble(priceParam);
-         try {
-            mvdao.AddMovie(request, conn, mvname, mvtime, mvscript, mvprice);
-        } catch (SQLException ex) {
-            Logger.getLogger(addmovieservlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        mvdao.AddMovie(request, conn, mvname, mvtime, mvscript, mvprice, mvposter);
         request.getRequestDispatcher("/homepage.jsp").forward(request, response);
         }catch (NumberFormatException e){
             System.out.println("Lỗi chuyển đổi số " + e.getMessage());

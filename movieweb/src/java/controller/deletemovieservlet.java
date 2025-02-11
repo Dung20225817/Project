@@ -59,13 +59,8 @@ public class deletemovieservlet extends HttpServlet {
         HttpSession ss= request.getSession();
         moviedao mvdao =new moviedao();
         ArrayList<Movie> ListMovie;
-        try {
-            ListMovie = mvdao.GetListMovie(request, conn);
-             ss.setAttribute("ListMovie", ListMovie);
-             
-        } catch (SQLException ex) {
-            Logger.getLogger(deletemovieservlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        ListMovie = mvdao.GetListMovie(request, conn);
+        ss.setAttribute("ListMovie", ListMovie);
         request.getRequestDispatcher("/DeleteMovie.jsp").forward(request, response);
     }
 
@@ -75,29 +70,8 @@ public class deletemovieservlet extends HttpServlet {
         Connection conn =  DBConnect.getJDBCConnection();
         HttpSession ss= request.getSession();
         moviedao mvdao =new moviedao();
-        
-        try {
-            ArrayList<Movie> ListMovie = mvdao.GetListMovie(request, conn);
-            String curname = request.getParameter("curmvname");
-            if( curname==null)
-            {
-                  String msg="Loi không có dữ liệu";
-                  ss.setAttribute("msg1", msg);
-                  request.getRequestDispatcher("/DeleteMovie.jsp").forward(request, response);
-              }
-            else{
-             for(Movie mv: ListMovie){
-              if(curname.equals(mv.getMvname())){
-                  mvdao.DeleteMovie(request, conn, curname); 
-                //  mv.setMvstatus(false);
-                  request.getRequestDispatcher("/homepage.jsp").forward(request, response);
-              }
-             }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(deletemovieservlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
+        mvdao.DeleteMovie(request, conn, Integer.parseInt(request.getParameter("mvid")));
+        request.getRequestDispatcher("homepage.jsp").forward(request, response);
         
     }
 

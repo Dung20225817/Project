@@ -63,12 +63,8 @@ public class deleteorderservlet extends HttpServlet {
         Connection conn = DBConnect.getJDBCConnection();
         orderdao odao= new orderdao();
         HttpSession ss= request.getSession();
-        try {
-            ss.setAttribute("ListOrder", odao.GetOrder(request, conn));
-            request.getRequestDispatcher("deleteorder.jsp").forward(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(deleteorderservlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        ss.setAttribute("ListOrder", odao.GetListOrder(request, conn));
+        request.getRequestDispatcher("deleteorder.jsp").forward(request, response);
         
     }
 
@@ -86,15 +82,8 @@ public class deleteorderservlet extends HttpServlet {
         orderdao odao = new orderdao();
         String oidStr = request.getParameter("curorder");
         int oid = Integer.parseInt(oidStr);
-        try {
-            odao.DeleteOrder(request, conn,oid );
-            request.getRequestDispatcher("homepage.jsp").forward(request, response);
-        } catch (SQLException ex) {
-            String msg="Loi xoa du lieu";
-            HttpSession ss= request.getSession();
-            ss.setAttribute("msg", msg);
-            request.getRequestDispatcher("deleteorder.jsp").forward(request, response);
-        }
+        odao.DeleteOrder(request, conn,oid );
+        request.getRequestDispatcher("homepage.jsp").forward(request, response);
     }
 
     /**
