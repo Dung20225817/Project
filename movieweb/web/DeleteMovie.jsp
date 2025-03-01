@@ -30,7 +30,7 @@
     <a href="#"><img src="img/newlogo.png" class="logo"></a>
     <div><!-- Không có ý nghĩa về mặt nội dung, chỉ giúp bố cục trang -->
         <ul id="navbar">     <!-- Dùng để tạo danh sách các mục có dấu đầu dòng (bullet points). -->
-            <li><a class="active" href="homepage.jsp">Home</a></li> <!-- tạo list danh sách -->
+            <li><a class="active" href="showhomepageservlet">Home</a></li> <!-- tạo list danh sách -->
             <li><a href="updatemovieservlet">Update movie</a></li>
             <li><a href="addmovie.jsp">Add movie</a></li>
         </ul>

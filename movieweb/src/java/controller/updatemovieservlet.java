@@ -91,7 +91,7 @@ public class updatemovieservlet extends HttpServlet {
         curmovie.setMvtime(Timestamp.valueOf(localDateTime));
         
         mvdao.UpdateMovie(request, conn, curmovie);
-        request.getRequestDispatcher("/homepage.jsp").forward(request, response);
+        request.getRequestDispatcher("showhomepageservlet").forward(request, response);
         
         
     }

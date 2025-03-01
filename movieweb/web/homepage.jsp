@@ -13,7 +13,21 @@
     background-image: url("img/natra.png") ; 
     }
     #hero button{
-    background-image: url("img/button.png");
+     background-color: seashell;
+    color: #ff4b2b;
+    border: none;
+    width: 20px; /* Độ rộng của nút */
+    height: 20px; /* Chiều cao của nút để làm nó vuông */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40%; /* Bỏ bo tròn */
+    white-space: nowrap;
     }
     #header .logo {
     width: 80px;  /* Điều chỉnh kích thước chiều rộng */
@@ -41,44 +55,45 @@
 </section>
 <!-- Home page -->
  <section id="hero" >
-    <h4>Phim trong tháng</h4>
-    <h2>Top 1 thịnh hành</h2>
+    <h4>Movie of the Month</h4>
+    <h2>No. 1 Trending</h2>
     <h1>Natra: Ma đồng Náo Hải</h1>
-    <p>Phát hành ngày 12-3-2024 </p>
-    <button>mua ngay</button>
+    <p>Released on March 2, 2025 </p>
+    <button>Buy now</button>
  </section>
 
  <!-- feature [tinh nang] -->
 <section id="feature" class="section-p1">
+
     <div class="fe-box">
         <a href="showtimeservlet">
         <img src="img/features/f1.png">
         </a>
-        <h6>Lich phim</h6>
+        <h6> Movie Schedule</h6>
     </div>
     <div class="fe-box">
         <a href="incomeservlet">
         <img src="img/features/f2.png">
         </a>
-        <h6>Doanh thu</h6>
+        <h6>Revenue</h6>
     </div>
     <div class="fe-box">
         <a href="showcustomerinformationservlet">
         <img src="img/features/f3.png">
         </a>
-        <h6>thong tin khach hang</h6>
+        <h6> Customer Information</h6>
     </div>
     <div class="fe-box">
          <a href="showemployeeinformationservlet">
         <img src="img/features/f4.png">
          </a>
-        <h6>thong tin nhan vien</h6>
+        <h6>Employee Information</h6>
     </div>
    <div class="fe-box">
        <a href="showcinemainformationservlet">
            <img src="img/features/f5.png"><!-- comment -->
        </a>
-        <h6>Thông tin doanh nghiệp</h6>
+        <h6> Business Information</h6>
     </div>
 <!--     <div class="fe-box">
         <img src="img/features/f6.png">
@@ -88,8 +103,8 @@
 
 <!-- product -->
  <section id="product1" class="section-p1">
-    <h2>Phim đang chiếu</h2>
-    <p>Cập nhật theo tuần</p>
+    <h2>Now Showing</h2>
+    <p>Updated Weekly</p>
     <div class="pro-container">
              <c:forEach var="movie" items="${ListMovieWeek}">
                  <div class="pro">

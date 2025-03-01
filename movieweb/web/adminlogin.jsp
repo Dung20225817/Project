@@ -125,7 +125,7 @@ select option {
     color: #e5e5e5;
 }
 button{
-    margin-top: 50px;
+    margin-top: 20px;
     width: 100%;
     background-color: #ffffff;
     color: #080710;
@@ -157,7 +157,9 @@ button{
 .social i{
   margin-right: 4px;
 }
-
+.error{
+     height: 0px;
+}
     </style>
 </head>
 <body>
@@ -167,24 +169,19 @@ button{
     </div>
     <form action="adminlogin" method="Post">
         <h3>Login Here</h3>
-
+        <p class="error">${msg0}</p>
         <label for="username">Username</label>
         <input type="text" placeholder="Email or Phone" name="Username" id="username">
-
         <label for="password">Password</label>
         <input type="password" placeholder="Password" name="Password" id="password">
-        
-        <label for="role">Role</label>
+        <label for="role" class="label_role">Role</label>
         <select name="role" id="role">
             <<option value="admin">admin</option>
             <<option value="user">user</option>
         </select>
 
         <button type="submit">Log In</button>
-        <div class="social">
-          <div class="go"><i class="fab fa-google"></i>  Google</div>
-          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-        </div>
+        
     </form>
 </body>
 </html>

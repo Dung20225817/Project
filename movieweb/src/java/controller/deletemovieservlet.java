@@ -71,7 +71,7 @@ public class deletemovieservlet extends HttpServlet {
         HttpSession ss= request.getSession();
         moviedao mvdao =new moviedao();
         mvdao.DeleteMovie(request, conn, Integer.parseInt(request.getParameter("mvid")));
-        request.getRequestDispatcher("homepage.jsp").forward(request, response);
+        request.getRequestDispatcher("showhomepageservlet").forward(request, response);
         
     }
 

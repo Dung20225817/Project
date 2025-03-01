@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"><!-- lấy kí hiệu đặc biệt -->
     <title>Trang Web Rạp Chiếu Phim</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css"><!-- link lấy css -->
+    <link rel="stylesheet" type="text/css" href="css/accountstyle.css"><!-- link lấy css -->
     <style>
     #header .logo {
     width: 80px;  /* Điều chỉnh kích thước chiều rộng */
@@ -36,14 +36,26 @@
         </ul>
     </div>
 </section>
+        <div class="form-container">
         <form action="addmovieservlet" method="post">
-           movie name : <input type="text" name="movie" placeholder="name movie" value="" required="">
-           script : <input type="text" name="script" placeholder="script for movie" >
-           time : <input type="datetime-local" name="time" placeholder="time start" value="" required>
-           price : <input type="number" step="0.01" name="price"  value="" required="">
-           poster :<input type="text" name="mvposter" ><!-- comment -->
-           <input type="submit" value="add">
+            <label for="movie">Movie name:</label>
+            <input type="text" name="movie" placeholder="name movie" value="" required="">
+
+            <label for="script">Script:</label>
+            <input type="text" name="script" placeholder="script for movie" >
+
+            <label for="time">Time:</label>
+            <input type="datetime-local" name="time" placeholder="time start" value="" required>
+
+            <label for="price">Price:</label>
+            <input type="number" step="0.01" name="price"  value="" required="">
+
+            <label for="mvposter">Poster:</label>
+            <input type="text" name="mvposter" >
+
+            <button type="submit">Add</button>
         </form>
+    </div>
         ${error}
     </body>
 </html>

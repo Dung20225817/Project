@@ -142,10 +142,8 @@ public class moviedao implements imoviedao{
     public ArrayList<Movie> GetListMovieWeek(HttpServletRequest request, Connection connection){
         PreparedStatement psm = null;
         try {
-            String sql = " SELECT m.mvname, m.mvprice, m.mvstatus, m.mvtime, m.mvscript, m.mvid, m.mvposter " + " FROM movie m join \n"
-                    + "(select mvname, max(mvid) as maxmvid from movie m1 group by mvname)  AS grouped_movies\n"
-                    + "on m.mvid = grouped_movies.maxmvid\n"
-                    + "where m.mvtime > '2025-2-9 00:00:00';";
+            String sql = " SELECT m.mvname, m.mvprice, m.mvstatus, m.mvtime, m.mvscript, m.mvid, m.mvposter " + " FROM movie m \n" 
+                    + "where m.mvtime > '2025-2-19 00:00:00' AND m.mvtime < '2025-2-27 00:00:00' AND m.mvstatus = 1 ;";
             psm = connection.prepareStatement(sql);
             ArrayList<Movie> ListMovie = new ArrayList<>();
 
